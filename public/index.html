@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random Quote Generator</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    #container {
+        width: 50%;
+    }
+    header {
+        background: #50b3a2;
+        color: white;
+        text-align: center;
+        padding: 1em;
+    }
+    #quoteDisplay {
+        margin-top: 2em;
+        padding: 2em;
+        background: #ffffff;
+        text-align: center;
+    }
+    button {
+        display: block;
+        background: #50b3a2;
+        color: white;
+        padding: 1em 2em;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 2em auto;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <header>
+        <h1>Random Quote Generator</h1>
+    </header>
+    <div id="quoteDisplay"></div>
+    <button onclick="displayRandomQuote()">Generate Quote</button>
+</div>
+<script>
+    const quotes = [
+        {author: "Mahatma Gandhi", text: "Be the change that you wish to see in the world."},
+        {author: "Nelson Mandela", text: "It always seems impossible until it's done."},
+        {author: "Martin Luther King Jr.", text: "I have a dream."},
+        {author: "Albert Einstein", text: "Life is like riding a bicycle. To keep your balance, you must keep moving."},
+        {author: "Steve Jobs", text: "Your time is limited, don't waste it living someone else's life."},
+        {author: "Eleanor Roosevelt", text: "The future belongs to those who believe in the beauty of their dreams."},
+        {author: "Franklin D. Roosevelt", text: "The only limit to our realization of tomorrow is our doubts of today."},
+        {author: "Mother Teresa", text: "Do not wait for leaders; do it alone, person to person."}
+    ];
+
+    function displayRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quote = quotes[randomIndex];
+        document.getElementById('quoteDisplay').innerHTML = '<p>"' + quote.text + '"</p><p><strong> - ' + quote.author + '</strong></p>';
+    }
+
+    // Display a quote when the page loads
+    displayRandomQuote();
+</script>
+</body>
+</html>
+
